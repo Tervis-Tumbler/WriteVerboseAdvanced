@@ -1,11 +1,11 @@
 ﻿function Write-VerboseAdvanced {
     [CmdletBinding()]
     param(
-        [parameter(Mandatory, ValueFromPipeline)]$Input,
+        [parameter(Mandatory, ValueFromPipeline)]$VerboseInput,
         [Switch]$PassThrough
     )
     if($VerbosePreference -ne "SilentlyContinue") {
-        $Input | Format-List * | Out-String -Stream | Write-Verbose
+        $VerboseInput | Format-List * | Out-String -Stream | Write-Verbose
     }
-    if ($PassThrough) {$Input}
+    if ($PassThrough) {$VerboseInput}
 }
